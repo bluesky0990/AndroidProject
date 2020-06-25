@@ -15,7 +15,6 @@
         <activity android:name=".main.mains" />
         <activity android:name=".login.loginRegister" />
         <activity android:name=".login.login" />
-        <activity android:name=".loading" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
