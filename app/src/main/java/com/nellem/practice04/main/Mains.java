@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.nellem.practice04.R;
-import com.nellem.practice04.login.login;
+import com.nellem.practice04.login.Login;
 
-public class mains extends AppCompatActivity {
+public class Mains extends AppCompatActivity {
 
     Button btnRealtime, btnOnePerson, btnProfile, btnLogout;
 
@@ -23,7 +23,7 @@ public class mains extends AppCompatActivity {
         btnRealtime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), mains_realtime.class);
+                Intent intent = new Intent(getApplicationContext(), Mains_Realtime.class);
                 startActivity(intent);
             }
         });
@@ -32,7 +32,7 @@ public class mains extends AppCompatActivity {
         btnOnePerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), mains_oneperson.class);
+                Intent intent = new Intent(getApplicationContext(), Mains_Oneperson.class);
                 startActivity(intent);
             }
         });
@@ -41,7 +41,7 @@ public class mains extends AppCompatActivity {
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), mains_profile.class);
+                Intent intent = new Intent(getApplicationContext(), Mains_Profile.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +50,7 @@ public class mains extends AppCompatActivity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), login.class);
+                Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
             }
         });

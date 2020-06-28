@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.nellem.practice04.R;
 
-public class mains_profile extends AppCompatActivity {
+public class Mains_Realtime extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mains_profile);
+        setContentView(R.layout.activity_mains_realtime);
     }
 }

@@ -13,9 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nellem.practice04.R;
-import com.nellem.practice04.main.mains;
-
-import org.w3c.dom.Text;
+import com.nellem.practice04.main.Mains;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -23,7 +21,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class login extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     Handler handler;
 
     EditText etId, etPw;
@@ -52,7 +50,7 @@ public class login extends AppCompatActivity {
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), loginRegister.class);
+                Intent intent = new Intent(getApplicationContext(), LoginRegister.class);
                 startActivity(intent);
             }
         });
@@ -102,7 +100,7 @@ public class login extends AppCompatActivity {
                         }
 
                         if(id.equalsIgnoreCase(dbId) && pw.equalsIgnoreCase(dbPw)) {
-                            Intent intent = new Intent(getApplicationContext(), mains.class);
+                            Intent intent = new Intent(getApplicationContext(), Mains.class);
                             startActivity(intent);
                         } else {
                             Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호를 확인해 주십시오.", Toast.LENGTH_SHORT).show();

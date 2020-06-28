@@ -8,20 +8,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.nellem.practice04.R;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class mains_oneperson extends AppCompatActivity {
+public class Mains_Oneperson extends AppCompatActivity {
 
     ListView list;
-    mains_onepersonAdapter adapter;
+    Mains_OnepersonAdapter adapter;
     Handler handler;
     String[][] storage;
 
@@ -32,7 +30,7 @@ public class mains_oneperson extends AppCompatActivity {
 
         handler = new Handler();
         list = (ListView)findViewById(R.id.lvOnePerson);
-        adapter = new mains_onepersonAdapter();
+        adapter = new Mains_OnepersonAdapter();
         list.setAdapter(adapter);
 
         boardLoad();
@@ -40,7 +38,7 @@ public class mains_oneperson extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                mains_oneperson_LvItem item = (mains_oneperson_LvItem)adapterView.getItemAtPosition(i);
+                Mains_Oneperson_LvItem item = (Mains_Oneperson_LvItem)adapterView.getItemAtPosition(i);
 
             }
         });

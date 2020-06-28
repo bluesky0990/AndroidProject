@@ -8,11 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.nellem.practice04.MainActivity;
 import com.nellem.practice04.R;
-import com.nellem.practice04.main.mains_profile;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -20,7 +17,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class loginRegister extends AppCompatActivity {
+public class LoginRegister extends AppCompatActivity {
 
     EditText etName, etId, etPw, etEmail;
     Button btnRegister;
@@ -45,7 +42,7 @@ public class loginRegister extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dataInsert();
-                Intent intent = new Intent(getApplicationContext(), login.class);
+                Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
             }
         });

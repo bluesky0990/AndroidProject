@@ -11,8 +11,8 @@ import com.nellem.practice04.R;
 
 import java.util.ArrayList;
 
-public class mains_onepersonAdapter extends BaseAdapter {
-    ArrayList<mains_oneperson_LvItem> itemlist = new ArrayList<>();
+public class Mains_OnepersonAdapter extends BaseAdapter {
+    ArrayList<Mains_Oneperson_LvItem> itemlist = new ArrayList<>();
 
     @Override
     public int getCount() {
@@ -45,7 +45,7 @@ public class mains_onepersonAdapter extends BaseAdapter {
         TextView writer = (TextView)view.findViewById(R.id.tvWriter);
         TextView date = (TextView)view.findViewById(R.id.tvDate);
 
-        mains_oneperson_LvItem listitem = itemlist.get(i);
+        Mains_Oneperson_LvItem listitem = itemlist.get(i);
 
         no.setText(listitem.getNo());
         region.setText(listitem.getRegion());
@@ -57,7 +57,7 @@ public class mains_onepersonAdapter extends BaseAdapter {
     }
 
     public void addItem(String no, String region, String title, String writer, String date) {
-        mains_oneperson_LvItem item = new mains_oneperson_LvItem();
+        Mains_Oneperson_LvItem item = new Mains_Oneperson_LvItem();
         item.setNo(no);
         item.setRegion(region);
         item.setTitle(title);
