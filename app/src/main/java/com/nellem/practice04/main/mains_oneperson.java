@@ -23,6 +23,7 @@ public class mains_oneperson extends AppCompatActivity {
     ListView list;
     mains_onepersonAdapter adapter;
     Handler handler;
+    String[][] storage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +35,13 @@ public class mains_oneperson extends AppCompatActivity {
         adapter = new mains_onepersonAdapter();
         list.setAdapter(adapter);
 
-        adapter.addItem();
+        boardLoad();
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 mains_oneperson_LvItem item = (mains_oneperson_LvItem)adapterView.getItemAtPosition(i);
-                int boardId = this.
+
             }
         });
     }
@@ -56,11 +57,11 @@ public class mains_oneperson extends AppCompatActivity {
                     http.setDoInput(true);
                     http.setRequestMethod("POST");
                     http.setRequestProperty("content-type", "application/x-www-form-urlencoded");
-                    StringBuffer buffer = new StringBuffer();
-                    buffer.append("name").append("=").append("");
-                    OutputStreamWriter osw = new OutputStreamWriter(http.getOutputStream(),"UTF-8");
-                    osw.write(buffer.toString());
-                    osw.flush();
+//                    StringBuffer buffer = new StringBuffer();
+//                    buffer.append("name").append("=").append("");
+//                    OutputStreamWriter osw = new OutputStreamWriter(http.getOutputStream(),"UTF-8");
+//                    osw.write(buffer.toString());
+//                    osw.flush();
 
                     InputStreamReader tmp = new InputStreamReader(http.getInputStream(), "UTF-8");
                     BufferedReader reader = new BufferedReader(tmp);
@@ -70,11 +71,24 @@ public class mains_oneperson extends AppCompatActivity {
                         builder.append(str);
                     }
                     String resultData = builder.toString();
-                    final String[] sResult = resultData.split("/");
+
+                    final int firstArraySize = resultData.split("¿").length;
+                    final int secondArraySize = 5; // The number of table property
+                    storage = new String[firstArraySize][secondArraySize];
+                    String[] oneArray = resultData.split("¿");
+                    for(int i = 0; i < firstArraySize; i++) {
+                        String[] tmps = oneArray[i].split("/");
+                        for(int j = 0; j < secondArraySize; j++) {
+                            storage[i][j] = tmps[j];
+                        }
+                    }
+
+                    for(int i = 0; i < storage.length; i++) {
+                        adapter.addItem(storage[i][0], storage[i][1], storage[i][2], storage[i][3], storage[i][4]);
+                    }
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            asd
                         }
                     });
                 } catch (Exception e){

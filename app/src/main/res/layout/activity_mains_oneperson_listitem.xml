@@ -28,6 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_weight="4"
+                android:gravity="center"
                 android:text="제목"
                 android:textSize="24sp" />
         </TableRow>
@@ -44,7 +45,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="글번호"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tvWriter"

@@ -1,11 +1,19 @@
 package com.nellem.practice04.main;
 
 public class mains_oneperson_LvItem {
+    String no;
     String region;
     String title;
-    String no;
     String writer;
     String date;
+
+    public String getNo() {
+        return no;
+    }
+
+    public void setNo(String no) {
+        this.no = no;
+    }
 
     public String getRegion() {
         return region;
@@ -21,14 +29,6 @@ public class mains_oneperson_LvItem {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getNo() {
-        return no;
-    }
-
-    public void setNo(String no) {
-        this.no = no;
     }
 
     public String getWriter() {

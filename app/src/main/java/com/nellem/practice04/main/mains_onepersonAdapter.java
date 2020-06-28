@@ -39,28 +39,28 @@ public class mains_onepersonAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.activity_mains_oneperson_listitem, viewGroup, false);
         }
 
+        TextView no = (TextView)view.findViewById(R.id.tvNo);
         TextView region = (TextView)view.findViewById(R.id.tvRegion);
         TextView title = (TextView)view.findViewById(R.id.tvTitle);
-        TextView no = (TextView)view.findViewById(R.id.tvNo);
         TextView writer = (TextView)view.findViewById(R.id.tvWriter);
         TextView date = (TextView)view.findViewById(R.id.tvDate);
 
         mains_oneperson_LvItem listitem = itemlist.get(i);
 
+        no.setText(listitem.getNo());
         region.setText(listitem.getRegion());
         title.setText(listitem.getTitle());
-        no.setText(listitem.getNo());
         writer.setText(listitem.getWriter());
         date.setText(listitem.getDate());
 
         return view;
     }
 
-    public void addItem(String region, String title, String no, String writer, String date) {
+    public void addItem(String no, String region, String title, String writer, String date) {
         mains_oneperson_LvItem item = new mains_oneperson_LvItem();
+        item.setNo(no);
         item.setRegion(region);
         item.setTitle(title);
-        item.setNo(no);
         item.setWriter(writer);
         item.setDate(date);
 

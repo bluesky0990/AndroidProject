@@ -96,18 +96,18 @@ public class login extends AppCompatActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            if(resultData != "") {
-                                dbId = sResult[0];
-                                dbPw = sResult[1];
-                            }
+                        if(resultData != "") {
+                            dbId = sResult[0];
+                            dbPw = sResult[1];
+                        }
 
-                            if(id.equalsIgnoreCase(dbId) && pw.equalsIgnoreCase(dbPw)) {
-                                Intent intent = new Intent(getApplicationContext(), mains.class);
-                                startActivity(intent);
-                            } else {
-                                Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호를 확인해 주십시오.", Toast.LENGTH_SHORT).show();
-                                etPw.setText("");
-                            }
+                        if(id.equalsIgnoreCase(dbId) && pw.equalsIgnoreCase(dbPw)) {
+                            Intent intent = new Intent(getApplicationContext(), mains.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호를 확인해 주십시오.", Toast.LENGTH_SHORT).show();
+                            etPw.setText("");
+                        }
                         }
                     });
                 } catch (Exception e){
