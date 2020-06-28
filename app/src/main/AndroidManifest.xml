@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".mains_oneperson.Oneperson_post"></activity>
+        <activity android:name=".mains_oneperson.Oneperson_Post"></activity>
         <activity android:name=".main.Mains_Profile" />
         <activity android:name=".main.Mains_Oneperson" />
         <activity android:name=".main.Mains_Realtime" />

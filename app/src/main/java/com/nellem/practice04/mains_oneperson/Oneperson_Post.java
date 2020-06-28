@@ -17,7 +17,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Oneperson_post extends AppCompatActivity {
+public class Oneperson_Post extends AppCompatActivity {
 
     Handler handler;
 

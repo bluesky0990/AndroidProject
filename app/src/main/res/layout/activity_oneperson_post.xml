@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mains_oneperson.Oneperson_post">
+    tools:context=".mains_oneperson.Oneperson_Post">
 
     <LinearLayout
         android:layout_width="match_parent"

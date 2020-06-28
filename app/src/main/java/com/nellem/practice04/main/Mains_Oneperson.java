@@ -9,12 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.nellem.practice04.R;
 import com.nellem.practice04.mains_oneperson.OnepersonAdapter;
 import com.nellem.practice04.mains_oneperson.Oneperson_LvItem;
-import com.nellem.practice04.mains_oneperson.Oneperson_post;
+import com.nellem.practice04.mains_oneperson.Oneperson_Post;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -47,7 +46,7 @@ public class Mains_Oneperson extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Oneperson_LvItem item = (Oneperson_LvItem)adapterView.getItemAtPosition(i);
                 selectPostNo = Integer.parseInt(item.getNo());
-                Intent intent = new Intent(getApplicationContext(), Oneperson_post.class);
+                Intent intent = new Intent(getApplicationContext(), Oneperson_Post.class);
                 startActivity(intent);
             }
         });
