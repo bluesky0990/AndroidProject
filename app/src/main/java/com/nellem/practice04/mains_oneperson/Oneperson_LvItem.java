@@ -1,6 +1,6 @@
-package com.nellem.practice04.main;
+package com.nellem.practice04.mains_oneperson;
 
-public class Mains_Oneperson_LvItem {
+public class Oneperson_LvItem {
     String no;
     String region;
     String title;

@@ -1,4 +1,4 @@
-package com.nellem.practice04.main;
+package com.nellem.practice04.mains_oneperson;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,8 +11,8 @@ import com.nellem.practice04.R;
 
 import java.util.ArrayList;
 
-public class Mains_OnepersonAdapter extends BaseAdapter {
-    ArrayList<Mains_Oneperson_LvItem> itemlist = new ArrayList<>();
+public class OnepersonAdapter extends BaseAdapter {
+    ArrayList<Oneperson_LvItem> itemlist = new ArrayList<>();
 
     @Override
     public int getCount() {
@@ -39,13 +39,13 @@ public class Mains_OnepersonAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.activity_mains_oneperson_listitem, viewGroup, false);
         }
 
-        TextView no = (TextView)view.findViewById(R.id.tvNo);
+        TextView no = (TextView)view.findViewById(R.id.tvWriter);
         TextView region = (TextView)view.findViewById(R.id.tvRegion);
         TextView title = (TextView)view.findViewById(R.id.tvTitle);
         TextView writer = (TextView)view.findViewById(R.id.tvWriter);
         TextView date = (TextView)view.findViewById(R.id.tvDate);
 
-        Mains_Oneperson_LvItem listitem = itemlist.get(i);
+        Oneperson_LvItem listitem = itemlist.get(i);
 
         no.setText(listitem.getNo());
         region.setText(listitem.getRegion());
@@ -57,7 +57,7 @@ public class Mains_OnepersonAdapter extends BaseAdapter {
     }
 
     public void addItem(String no, String region, String title, String writer, String date) {
-        Mains_Oneperson_LvItem item = new Mains_Oneperson_LvItem();
+        Oneperson_LvItem item = new Oneperson_LvItem();
         item.setNo(no);
         item.setRegion(region);
         item.setTitle(title);

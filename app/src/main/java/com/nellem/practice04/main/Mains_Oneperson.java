@@ -2,14 +2,19 @@ package com.nellem.practice04.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.nellem.practice04.R;
+import com.nellem.practice04.mains_oneperson.OnepersonAdapter;
+import com.nellem.practice04.mains_oneperson.Oneperson_LvItem;
+import com.nellem.practice04.mains_oneperson.Oneperson_post;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -19,9 +24,11 @@ import java.net.URL;
 public class Mains_Oneperson extends AppCompatActivity {
 
     ListView list;
-    Mains_OnepersonAdapter adapter;
+    OnepersonAdapter adapter;
     Handler handler;
     String[][] storage;
+
+    public static int selectPostNo = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +37,7 @@ public class Mains_Oneperson extends AppCompatActivity {
 
         handler = new Handler();
         list = (ListView)findViewById(R.id.lvOnePerson);
-        adapter = new Mains_OnepersonAdapter();
+        adapter = new OnepersonAdapter();
         list.setAdapter(adapter);
 
         boardLoad();
@@ -38,8 +45,10 @@ public class Mains_Oneperson extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Mains_Oneperson_LvItem item = (Mains_Oneperson_LvItem)adapterView.getItemAtPosition(i);
-
+                Oneperson_LvItem item = (Oneperson_LvItem)adapterView.getItemAtPosition(i);
+                selectPostNo = Integer.parseInt(item.getNo());
+                Intent intent = new Intent(getApplicationContext(), Oneperson_post.class);
+                startActivity(intent);
             }
         });
     }
@@ -89,7 +98,7 @@ public class Mains_Oneperson extends AppCompatActivity {
                         public void run() {
                         }
                     });
-                } catch (Exception e){
+                } catch(Exception e) {
                     Log.e("Error", "실행도중 문제가 발생했습니다. 확인 후 수정바랍니다.", e);
                 }
             }
