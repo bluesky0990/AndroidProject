@@ -31,7 +31,7 @@ public class Login extends AppCompatActivity {
     String id;
     String pw;
 
-    String dbId = null;
+    public static String dbId = null;
     String dbPw = null;
 
     String str;
@@ -71,7 +71,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("Http://10.0.2.2/Travel/memberSelect.php/");
+                    URL url = new URL("Http://goodmin.dothome.co.kr/php/memberSelect.php/");
                     HttpURLConnection http = (HttpURLConnection)url.openConnection();
                     http.setDefaultUseCaches(false);
                     http.setDoInput(true);

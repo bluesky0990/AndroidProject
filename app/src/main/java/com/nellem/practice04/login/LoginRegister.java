@@ -58,7 +58,7 @@ public class LoginRegister extends AppCompatActivity {
                     pw = etPw.getText().toString();
                     email = etEmail.getText().toString();
 
-                    URL url = new URL("http://10.0.2.2/Travel/insert.php/");
+                    URL url = new URL("http://goodmin.dothome.co.kr/php/insert.php/");
                     HttpURLConnection http = (HttpURLConnection) url.openConnection();
                     http.setDefaultUseCaches(false);
                     http.setDoInput(true);

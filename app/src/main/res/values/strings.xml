@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Practice04</string>
+    <string-array name="spinner_region">
+        <item>강원</item>
+        <item>경기</item>
+        <item>경북</item>
+        <item>경남</item>
+        <item>충북</item>
+        <item>충남</item>
+        <item>전북</item>
+        <item>전북</item>
+    </string-array>
 </resources>

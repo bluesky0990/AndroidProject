@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".mains_oneperson.Oneperson_Post"></activity>
+        <activity android:name=".mains_oneperson.OnepersonWrite"></activity>
+        <activity android:name=".mains_oneperson.Oneperson_Post" />
         <activity android:name=".main.Mains_Profile" />
         <activity android:name=".main.Mains_Oneperson" />
         <activity android:name=".main.Mains_Realtime" />

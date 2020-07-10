@@ -42,7 +42,7 @@ public class Oneperson_Post extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("Http://10.0.2.2/Travel/postLoad.php/");
+                    URL url = new URL("Http://goodmin.dothome.co.kr/php/postLoad.php/");
                     HttpURLConnection http = (HttpURLConnection)url.openConnection();
                     http.setDefaultUseCaches(false);
                     http.setDoInput(true);
