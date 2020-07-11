@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -15,6 +17,8 @@ import android.widget.Spinner;
 import com.nellem.practice04.R;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 public class Mains_Realtime extends AppCompatActivity {
     private Spinner spinnerRegion, spinnerSex;
@@ -32,14 +36,15 @@ public class Mains_Realtime extends AppCompatActivity {
 
         handler = new Handler();
         arrayListReg = new ArrayList<>();
+        arrayListReg.add("무관");
         arrayListReg.add("강원");
         arrayListReg.add("경기");
         arrayListReg.add("경북");
         arrayListReg.add("경남");
-        arrayListReg.add("충북");
-        arrayListReg.add("충남");
         arrayListReg.add("전북");
         arrayListReg.add("전남");
+        arrayListReg.add("충북");
+        arrayListReg.add("충남");
         arrayListSex = new ArrayList<>();
         arrayListSex.add("무관");
         arrayListSex.add("남자");
@@ -63,6 +68,8 @@ public class Mains_Realtime extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        actionBar();
 
         spinnerRegion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -92,5 +99,23 @@ public class Mains_Realtime extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void actionBar() {
+        int uiOptions = getWindow().getDecorView().getSystemUiVisibility();
+        int newUiOptions = uiOptions;
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        boolean isImmersiveModeEnabled =
+                ((uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) == uiOptions);
+        if (isImmersiveModeEnabled) {
+            Log.d(TAG, "Turning immersive mode mode off. ");
+        } else {
+            Log.d(TAG, "Turning immersive mode mode on.");
+        }
+        newUiOptions ^= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        newUiOptions ^= View.SYSTEM_UI_FLAG_FULLSCREEN;
+        newUiOptions ^= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
     }
 }

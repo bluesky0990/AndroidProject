@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.nellem.practice04.MainActivity;
 import com.nellem.practice04.R;
 import com.nellem.practice04.login.Login;
 import com.nellem.practice04.main.Mains_Oneperson;
@@ -22,6 +24,8 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 public class OnepersonPostModify extends AppCompatActivity {
     private Spinner spinner;
@@ -45,6 +49,8 @@ public class OnepersonPostModify extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oneperson_post_modify);
 
+        actionBar();
+
         intent = getIntent();
         no = intent.getExtras().getInt("no");
         region = intent.getExtras().getString("region");
@@ -60,10 +66,10 @@ public class OnepersonPostModify extends AppCompatActivity {
         arrayList.add("경기");
         arrayList.add("경북");
         arrayList.add("경남");
-        arrayList.add("충북");
-        arrayList.add("충남");
         arrayList.add("전북");
         arrayList.add("전남");
+        arrayList.add("충북");
+        arrayList.add("충남");
 
         arrayAdapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_spinner_dropdown_item,
@@ -85,6 +91,24 @@ public class OnepersonPostModify extends AppCompatActivity {
                 dataUpdate();
             }
         });
+    }
+
+    private void actionBar() {
+        int uiOptions = getWindow().getDecorView().getSystemUiVisibility();
+        int newUiOptions = uiOptions;
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        boolean isImmersiveModeEnabled =
+                ((uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) == uiOptions);
+        if (isImmersiveModeEnabled) {
+            Log.d(TAG, "Turning immersive mode mode off. ");
+        } else {
+            Log.d(TAG, "Turning immersive mode mode on.");
+        }
+        newUiOptions ^= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        newUiOptions ^= View.SYSTEM_UI_FLAG_FULLSCREEN;
+        newUiOptions ^= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
     }
 
     public void setSpinText(Spinner spin, String text) {
