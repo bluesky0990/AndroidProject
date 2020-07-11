@@ -42,8 +42,7 @@ public class LoginRegister extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dataInsert();
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

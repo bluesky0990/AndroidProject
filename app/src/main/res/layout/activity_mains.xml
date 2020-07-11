@@ -12,28 +12,40 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/tvId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="TextView"
+            android:textSize="24sp" />
+
         <Button
             android:id="@+id/btnRealtime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="실시간 매칭" />
 
         <Button
             android:id="@+id/btnOnePerson"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="1인 추천" />
 
         <Button
             android:id="@+id/btnProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="내 정보" />
 
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="로그아웃" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

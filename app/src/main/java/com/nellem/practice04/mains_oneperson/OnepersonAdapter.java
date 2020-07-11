@@ -12,7 +12,7 @@ import com.nellem.practice04.R;
 import java.util.ArrayList;
 
 public class OnepersonAdapter extends BaseAdapter {
-    ArrayList<Oneperson_LvItem> itemlist = new ArrayList<>();
+    public static ArrayList<Oneperson_LvItem> itemlist = new ArrayList<>();
 
     @Override
     public int getCount() {
@@ -39,7 +39,7 @@ public class OnepersonAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.activity_mains_oneperson_listitem, viewGroup, false);
         }
 
-        TextView no = (TextView)view.findViewById(R.id.tvWriter);
+        TextView no = (TextView)view.findViewById(R.id.tvNo);
         TextView region = (TextView)view.findViewById(R.id.tvRegion);
         TextView title = (TextView)view.findViewById(R.id.tvTitle);
         TextView writer = (TextView)view.findViewById(R.id.tvWriter);

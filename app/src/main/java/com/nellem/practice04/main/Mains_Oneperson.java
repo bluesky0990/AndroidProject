@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -32,7 +33,8 @@ public class Mains_Oneperson extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter;
 
     ListView list;
-    Button btnWrite;
+    Button btnSearch, btnWrite, btnReturn;
+    EditText etSearch;
     OnepersonAdapter adapter;
     Handler handler;
     String[][] storage;
@@ -46,6 +48,7 @@ public class Mains_Oneperson extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mains_oneperson);
         arrayList = new ArrayList<>();
+        arrayList.add("모두");
         arrayList.add("강원");
         arrayList.add("경기");
         arrayList.add("경북");
@@ -62,16 +65,21 @@ public class Mains_Oneperson extends AppCompatActivity {
         handler = new Handler();
         spinner = (Spinner)findViewById(R.id.spinner_oneperson);
         list = (ListView)findViewById(R.id.lvOnePerson);
+        etSearch = (EditText)findViewById(R.id.etSearch);
+        btnSearch = (Button)findViewById(R.id.btnSearch);
         btnWrite = (Button)findViewById(R.id.btnWrite);
+        btnReturn = (Button)findViewById(R.id.btnReturn);
         adapter = new OnepersonAdapter();
         list.setAdapter(adapter);
         spinner.setAdapter(arrayAdapter);
 
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                OnepersonAdapter.itemlist.clear();
                 region = adapterView.getSelectedItem().toString();
-                Log.e("error", region);
+                boardLoad(region, "null");
                 // 선택한 콤보박스 출력
             }
 
@@ -81,15 +89,25 @@ public class Mains_Oneperson extends AppCompatActivity {
             }
         });
 
-        boardLoad(region);
+        boardLoad("모두", "null");
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                OnepersonAdapter.itemlist.clear();
                 Oneperson_LvItem item = (Oneperson_LvItem)adapterView.getItemAtPosition(i);
                 selectPostNo = Integer.parseInt(item.getNo());
                 Intent intent = new Intent(getApplicationContext(), Oneperson_Post.class);
                 startActivity(intent);
+            }
+        });
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OnepersonAdapter.itemlist.clear();
+                String key = etSearch.getText().toString();
+                boardLoad(region, key);
             }
         });
 
@@ -100,13 +118,21 @@ public class Mains_Oneperson extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
-    public void boardLoad(String regionFilter) {
+    public void boardLoad(final String regionFilter, final String search) {
         new Thread() {
             @Override
             public void run() {
                 try {
+                    //OnepersonAdapter.itemlist.clear();
                     URL url = new URL("Http://goodmin.dothome.co.kr/php/boardLoad.php/");
                     HttpURLConnection http = (HttpURLConnection)url.openConnection();
                     http.setDefaultUseCaches(false);
@@ -114,7 +140,7 @@ public class Mains_Oneperson extends AppCompatActivity {
                     http.setRequestMethod("POST");
                     http.setRequestProperty("content-type", "application/x-www-form-urlencoded");
                     StringBuffer buffer = new StringBuffer();
-                    buffer.append("name").append("=").append("");
+                    buffer.append("search").append("=").append(regionFilter).append("/").append(search);
                     OutputStreamWriter osw = new OutputStreamWriter(http.getOutputStream(),"UTF-8");
                     osw.write(buffer.toString());
                     osw.flush();
@@ -145,6 +171,7 @@ public class Mains_Oneperson extends AppCompatActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
+                            adapter.notifyDataSetChanged();
                         }
                     });
                 } catch(Exception e) {

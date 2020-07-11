@@ -50,5 +50,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="글쓰기" />
+
+        <Button
+            android:id="@+id/btnReturn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="돌아가기" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

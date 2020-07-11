@@ -2,12 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    tools:context=".mains_oneperson.OnepersonWrite">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mains_oneperson.OnepersonPostModify">
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinner_one_post_modi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/etTitle"
@@ -33,30 +33,20 @@
         android:ems="18"
         android:gravity="start|top"
         android:inputType="textMultiLine|text|textImeMultiLine"
-        android:lines="23"
-        android:maxLines="23"
-        android:minLines="23"
+        android:lines="25"
+        android:maxLines="25"
+        android:minLines="25"
         app:layout_constraintBottom_toTopOf="@+id/btnWrite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etTitle" />
 
     <Button
-        android:id="@+id/btnWrite"
+        android:id="@+id/btnModify"
         android:layout_width="402dp"
         android:layout_height="44dp"
         android:text="작성"
-        app:layout_constraintBottom_toTopOf="@+id/btnReturn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnReturn"
-        android:layout_width="402dp"
-        android:layout_height="44dp"
-        android:text="돌아가기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
