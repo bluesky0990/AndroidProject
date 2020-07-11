@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +23,7 @@ public class Mains_Realtime extends AppCompatActivity {
     Button btnStart, btnReturn;
     Handler handler;
 
-    Intent intent;
+    String region, sex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,5 +58,39 @@ public class Mains_Realtime extends AppCompatActivity {
         btnReturn = (Button)findViewById(R.id.btnReturn);
         spinnerRegion.setAdapter(arrayAdapter1);
         spinnerSex.setAdapter(arrayAdapter2);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        spinnerRegion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                region = adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        spinnerSex.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                sex = adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

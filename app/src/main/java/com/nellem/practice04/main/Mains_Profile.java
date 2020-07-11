@@ -65,6 +65,8 @@ public class Mains_Profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 profileDelete();
+                Login.dbId = null;
+                Login.dbName = null;
                 Mains mainsActivity = (Mains)Mains.mainsActivity;
                 mainsActivity.finish();
                 finish();

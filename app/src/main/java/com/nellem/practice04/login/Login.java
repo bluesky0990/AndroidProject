@@ -31,6 +31,7 @@ public class Login extends AppCompatActivity {
     String id;
     String pw;
 
+    public static String dbName = null;
     public static String dbId = null;
     String dbPw = null;
 
@@ -66,7 +67,7 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    public void dataSelect() {
+    private void dataSelect() {
         new Thread() {
             @Override
             public void run() {
@@ -97,9 +98,11 @@ public class Login extends AppCompatActivity {
                         if(resultData != "") {
                             dbId = sResult[0];
                             dbPw = sResult[1];
+                            dbName = sResult[2];
                         }
 
                         if(id.equalsIgnoreCase(dbId) && pw.equalsIgnoreCase(dbPw)) {
+                            etPw.setText("");
                             Intent intent = new Intent(getApplicationContext(), Mains.class);
                             startActivity(intent);
                         } else {
