@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".mains_oneperson.Oneperson_Post">
 
     <LinearLayout
@@ -76,21 +77,27 @@
                 android:id="@+id/btnModify"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
                 android:layout_weight="1"
+                android:background="@drawable/buttonshape"
                 android:text="수정" />
 
             <Button
                 android:id="@+id/btnDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
                 android:layout_weight="1"
+                android:background="@drawable/buttonshape"
                 android:text="삭제" />
 
             <Button
                 android:id="@+id/btnReturn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="3dp"
                 android:layout_weight="1"
+                android:background="@drawable/buttonshape"
                 android:text="닫기" />
         </LinearLayout>
 

@@ -4,134 +4,152 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".main.Mains_Profile">
 
-    <TableLayout
+    <TextView
+        android:id="@+id/tvPw"
+        android:layout_width="150dp"
+        android:layout_height="51dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="패스워드"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvId" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="이메일"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="이름"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPw" />
+
+    <TextView
+        android:id="@+id/tvId"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="120dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="아이디"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:layout_weight="2"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tvName2" />
+
+    <TextView
+        android:id="@+id/tvName2"
+        android:layout_width="0dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="2"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvName"
+        app:layout_constraintTop_toBottomOf="@+id/etPw" />
+
+    <TextView
+        android:id="@+id/tvId2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="132dp"
+        android:layout_weight="2"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvId"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etPw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:layout_weight="2"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvPw"
+        app:layout_constraintTop_toBottomOf="@+id/tvId2" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/etEmail">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="269dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="300dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            android:text="변경" />
 
-            <TextView
-                android:id="@+id/tvId"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="아이디" />
+        <Button
+            android:id="@+id/btnWithdrawal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_marginTop="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            android:text="회원탈퇴" />
 
-            <TextView
-                android:id="@+id/tvId2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="TextView"
-                android:textSize="18sp" />
-        </TableRow>
+        <Button
+            android:id="@+id/btnReturn"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            android:text="돌아가기" />
+    </LinearLayout>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tvPw"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="패스워드" />
-
-            <EditText
-                android:id="@+id/etPw"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:textSize="18sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="이름" />
-
-            <TextView
-                android:id="@+id/tvName2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="TextView"
-                android:textSize="18sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tvEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="이메일" />
-
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:ems="10"
-                android:inputType="textEmailAddress"
-                android:textSize="18sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/btnSave"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="변경" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/btnWithdrawal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="회원탈퇴" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <Button
-                android:id="@+id/btnReturn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="돌아가기" />
-        </TableRow>
-    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

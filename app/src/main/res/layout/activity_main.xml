@@ -6,12 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/loading" />
+
     <TextView
         android:id="@+id/tvLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="여행 친구 찾기"
         android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +30,7 @@
         android:layout_height="wrap_content"
         android:text="Loading..."
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

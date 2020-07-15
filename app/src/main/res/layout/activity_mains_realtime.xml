@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".main.Mains_Realtime">
 
     <LinearLayout
@@ -26,6 +27,7 @@
         android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
         android:text="매칭 시작"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,6 +38,8 @@
         android:id="@+id/btnReturn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:background="@drawable/buttonshape"
         android:text="돌아가기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

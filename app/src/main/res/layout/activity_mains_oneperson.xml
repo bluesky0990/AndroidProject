@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".main.Mains_Oneperson">
 
     <LinearLayout
@@ -17,9 +18,11 @@
             android:orientation="horizontal">
 
             <Spinner
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:id="@+id/spinner_oneperson"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#4FE3D9"
                 android:layout_weight="1" />
 
             <EditText
@@ -27,13 +30,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="검색"
+                android:hint="제목"
                 android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/btnSearch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/buttonshape"
                 android:text="검색" />
         </LinearLayout>
 
@@ -49,12 +55,16 @@
             android:id="@+id/btnWrite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:background="@drawable/buttonshape"
             android:text="글쓰기" />
 
         <Button
             android:id="@+id/btnReturn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:background="@drawable/buttonshape"
             android:text="돌아가기" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
