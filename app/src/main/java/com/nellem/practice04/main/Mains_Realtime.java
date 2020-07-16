@@ -11,16 +11,26 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.nellem.practice04.R;
+import com.nellem.practice04.login.Login;
+import com.nellem.practice04.login.LoginRegister;
+import com.nellem.practice04.realtime.RealtimeChat;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.util.ArrayList;
 
 import static android.content.ContentValues.TAG;
 
 public class Mains_Realtime extends AppCompatActivity {
+
     private Spinner spinnerRegion, spinnerSex;
     ArrayList<String> arrayListReg, arrayListSex;
     ArrayAdapter<String> arrayAdapter1, arrayAdapter2;
@@ -28,6 +38,8 @@ public class Mains_Realtime extends AppCompatActivity {
     Handler handler;
 
     String region, sex;
+
+    Socket socket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +109,28 @@ public class Mains_Realtime extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                region = spinnerRegion.getSelectedItem().toString();
+                sex = spinnerSex.getSelectedItem().toString();
+
+
+                Intent intent = new Intent(getApplicationContext(), RealtimeChat.class);
+                startActivity(intent);
+
+//                if(btnStart.getText().toString().equals("매칭 종료")) {
+//                    stopClient();
+//                    btnStart.setText("매칭 시작");
+//                } else if(btnStart.getText().toString().equals("매칭 시작")) {
+//                    startClient();
+//                    btnStart.setText("매칭 종료");
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "문제가 발생하였습니다. 관리자에게 문의하시기 바랍니다.", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
     }

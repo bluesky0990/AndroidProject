@@ -69,7 +69,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:background="@drawable/buttonshape"
-        android:text="실시간 매칭"
+        android:text="실시간 채팅"
         app:layout_constraintBottom_toTopOf="@+id/btnOnePerson"
         tools:layout_editor_absoluteX="5dp" />
 

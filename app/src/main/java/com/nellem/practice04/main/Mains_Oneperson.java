@@ -79,7 +79,6 @@ public class Mains_Oneperson extends AppCompatActivity {
         list.setAdapter(adapter);
         spinner.setAdapter(arrayAdapter);
 
-
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -97,10 +96,10 @@ public class Mains_Oneperson extends AppCompatActivity {
 
         boardLoad("모두", "null");
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        list.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                OnepersonAdapter.itemlist.clear();
+                //OnepersonAdapter.itemlist.clear();
                 Oneperson_LvItem item = (Oneperson_LvItem)adapterView.getItemAtPosition(i);
                 selectPostNo = Integer.parseInt(item.getNo());
                 Intent intent = new Intent(getApplicationContext(), Oneperson_Post.class);
@@ -200,6 +199,7 @@ public class Mains_Oneperson extends AppCompatActivity {
                     });
                 } catch(Exception e) {
                     Log.e("Error", "실행도중 문제가 발생했습니다. 확인 후 수정바랍니다.", e);
+                    e.printStackTrace();
                 }
             }
         }.start();
