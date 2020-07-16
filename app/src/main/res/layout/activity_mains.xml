@@ -25,7 +25,7 @@
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:background="@drawable/buttonshape"
-        android:text="1인 추천"
+        android:text="여행지 추천"
         app:layout_constraintBottom_toTopOf="@+id/btnProfile"
         tools:layout_editor_absoluteX="5dp" />
 

@@ -24,7 +24,7 @@ import static android.content.ContentValues.TAG;
 public class LoginRegister extends AppCompatActivity {
 
     EditText etName, etId, etPw, etEmail;
-    Button btnRegister;
+    Button btnRegister, btnReturn;
 
     String name;
     String id;
@@ -43,6 +43,7 @@ public class LoginRegister extends AppCompatActivity {
         etPw = (EditText) findViewById(R.id.etPw);
         etEmail = (EditText) findViewById(R.id.etEmail);
         btnRegister = (Button) findViewById(R.id.btnRegister);
+        btnReturn = (Button)findViewById(R.id.btnReturn);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +60,12 @@ public class LoginRegister extends AppCompatActivity {
                     finish();
                 }
 
+            }
+        });
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }
@@ -95,8 +102,8 @@ public class LoginRegister extends AppCompatActivity {
                     http.setRequestProperty("content-type", "application/x-www-form-urlencoded");
 
                     StringBuffer buffer = new StringBuffer();
-                    buffer.append("member").append("=").append(name).append("/").
-                            append(id).append("/").append(pw).append("/").append(email);
+                    buffer.append("member").append("=").append(id).append("/").
+                            append(pw).append("/").append(name).append("/").append(email);
 
                     OutputStreamWriter osw = new OutputStreamWriter(http.getOutputStream(), "utf-8");
                     osw.write(buffer.toString());

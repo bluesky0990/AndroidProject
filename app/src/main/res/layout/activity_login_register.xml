@@ -58,5 +58,12 @@
             android:layout_margin="3dp"
             android:background="@drawable/buttonshape"
             android:text="회원가입" />
+
+        <Button
+            android:id="@+id/btnReturn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"
+            android:text="취소" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
