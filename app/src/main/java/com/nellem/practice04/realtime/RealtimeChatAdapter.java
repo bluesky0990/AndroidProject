@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.nellem.practice04.R;
-import com.nellem.practice04.mains_oneperson.Oneperson_LvItem;
 
 import java.util.ArrayList;
 

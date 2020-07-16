@@ -37,6 +37,7 @@ public class Login extends AppCompatActivity {
     String id;
     String pw;
 
+    public static int dbNo = 0;
     public static String dbName = null;
     public static String dbId = null;
     String dbPw = null;
@@ -127,7 +128,7 @@ public class Login extends AppCompatActivity {
                             dbName = sResult[2];
                         }
 
-                        if(id.equalsIgnoreCase(dbId) && pw.equalsIgnoreCase(dbPw)) {
+                        if(id.equals(dbId) && pw.equals(dbPw)) {
                             etPw.setText("");
                             Intent intent = new Intent(getApplicationContext(), Mains.class);
                             startActivity(intent);

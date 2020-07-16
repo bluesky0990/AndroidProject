@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.nellem.practice04.R;
 import com.nellem.practice04.login.Login;
@@ -65,9 +66,14 @@ public class RealtimeChat extends AppCompatActivity {
                 if(text.equals("연결")) {
                     startClient();
                     btnAction.setText("종료");
+                    realtimeChatAdapter.addItem("채팅서버에 연결되었습니다.");
+                    realtimeChatAdapter.notifyDataSetChanged();
                 } else if(text.equals("종료")) {
                     stopClient();
                     btnAction.setText("연결");
+                    RealtimeChatAdapter.itemlist.clear();
+                    realtimeChatAdapter.addItem("연결이 종료되었습니다.");
+                    realtimeChatAdapter.notifyDataSetChanged();
                 }
             }
         });
@@ -75,12 +81,21 @@ public class RealtimeChat extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                send(etMessage.getText().toString());
+                String text = btnAction.getText().toString();
+
+                if(text.equals("연결")) {
+                    Toast.makeText(getApplicationContext(), "서버연결 후 전송 가능합니다.", Toast.LENGTH_SHORT).show();
+                } else if(text.equals("종료")) {
+                    send(etMessage.getText().toString());
+                }
+
             }
         });
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stopClient();
+                btnAction.setText("연결");
                 finish();
             }
         });
@@ -163,6 +178,12 @@ public class RealtimeChat extends AppCompatActivity {
                     outputStream.write(byteArr);
                     outputStream.flush();
                     Log.e("error", "[메세지 전송완료]");
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            etMessage.setText("");
+                        }
+                    });
                 } catch (IOException e) {
                     Log.e("error", "[send()] 서버 연결중 문제가 발생하였습니다. 관리자에게 문의하시기 바랍니다.");
                     e.printStackTrace();

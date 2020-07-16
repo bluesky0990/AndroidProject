@@ -89,6 +89,7 @@ public class OnepersonPostModify extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dataUpdate();
+                finish();
             }
         });
     }
@@ -150,8 +151,6 @@ public class OnepersonPostModify extends AppCompatActivity {
                         @Override
                         public void run() {
                             Log.e("error", region+title+content);
-                            Intent intentTo = new Intent(getApplicationContext(), Mains_Oneperson.class);
-                            startActivity(intentTo);
                         }
                     });
                 } catch (Exception e){

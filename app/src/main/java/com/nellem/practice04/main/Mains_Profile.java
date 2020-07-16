@@ -224,12 +224,12 @@ public class Mains_Profile extends AppCompatActivity {
 //                    name = sResult[1];
 //                    email = sResult[2];
 
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getApplicationContext(), "그동안 이용해주셔서 감사합니다.", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+//                    handler.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            Toast.makeText(getApplicationContext(), "그동안 이용해주셔서 감사합니다.", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
                 } catch(Exception e) {
                     Log.e("Error", "실행도중 문제가 발생했습니다. 확인 후 수정바랍니다.", e);
                 }

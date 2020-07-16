@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.nellem.practice04.R;
 
@@ -46,8 +47,18 @@ public class LoginRegister extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dataInsert();
-                finish();
+                name = etName.getText().toString();
+                id = etId.getText().toString();
+                pw = etPw.getText().toString();
+                email = etEmail.getText().toString();
+
+                if(name.equals("") || id.equals("") || pw.equals("") || email.equals("")) {
+                    Toast.makeText(getApplicationContext(), "빈 칸을 모두 입력해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+                } else {
+                    dataInsert();
+                    finish();
+                }
+
             }
         });
     }
@@ -75,10 +86,6 @@ public class LoginRegister extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    name = etName.getText().toString();
-                    id = etId.getText().toString();
-                    pw = etPw.getText().toString();
-                    email = etEmail.getText().toString();
 
                     URL url = new URL("http://goodmin.dothome.co.kr/php/insert.php/");
                     HttpURLConnection http = (HttpURLConnection) url.openConnection();

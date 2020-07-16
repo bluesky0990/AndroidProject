@@ -72,6 +72,7 @@ public class Oneperson_Post extends AppCompatActivity {
                     intent.putExtra("date", date);
                     intent.putExtra("content", content);
                     startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "본인이 작성한 게시글만 수정이 가능합니다.", Toast.LENGTH_SHORT).show();
                 }
@@ -81,6 +82,7 @@ public class Oneperson_Post extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 postDelete();
+                finish();
             }
         });
         btnReturn.setOnClickListener(new View.OnClickListener() {
@@ -184,14 +186,6 @@ public class Oneperson_Post extends AppCompatActivity {
                     }
                     final String resultData = builder.toString();
                     final String[] sResult = resultData.split("/");
-
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent intent = new Intent(getApplicationContext(), Mains_Oneperson.class);
-                            startActivity(intent);
-                        }
-                    });
                 } catch(Exception e) {
                     Log.e("Error", "실행도중 문제가 발생했습니다. 확인 후 수정바랍니다.", e);
                 }
